@@ -1,0 +1,19 @@
+.orders {
+    padding: 20px;
+  }
+  
+  .orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .order-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .order-item h2, .order-item p, .order-item h3 {
+    margin: 5px 0;
+  }
