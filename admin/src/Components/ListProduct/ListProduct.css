@@ -1,53 +1,76 @@
+/* ListProduct.css */
 .listproduct {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 740px;
-  padding: 10px 50px;
-  margin: 30px;
-  border-radius: 6px;
-  background: #fff;
-}
-.listproduct-format-main{
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  width: 100%;
-  padding: 20px 0px;
-  color: #454545;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.listproduct-format{
+.listproduct h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.listproduct-format-main {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  font-weight: 500;
+  padding: 10px 0;
+  font-weight: bold;
+  color: #333;
 }
-.listproduct-product-icon{
-    height: 80px;
+
+.listproduct-allproducts {
+  margin-top: 20px;
 }
-.listproduct-remove-icon{
+
+.listproduct-format {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.listproduct-product-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.listproduct-format-main p {
+  flex: 1;
+  text-align: center;
+}
+
+.cartitems-product-title {
+  flex: 2;
+}
+
+.listproduct-remove-icon {
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  margin: auto;
 }
-.listproduct-allproducts{
-    overflow-y: auto;
+
+.listproduct button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
 }
-@media(max-width:800px){
-  .listproduct {
-    box-sizing: border-box;
-    width: 95%;
-    height: 100%;
-    padding: 10px 30px;
-    margin: 20px auto;
-  }
-  .listproduct-format-main{
-    padding: 15px 0px;
-    color: #454545;
-    font-size: 12px;
-  }
-  .listproduct-product-icon{
-    height: 60px;
+
+.listproduct button:hover {
+  background-color: #0056b3;
 }
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
 }

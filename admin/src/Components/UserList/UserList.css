@@ -1,0 +1,38 @@
+.userlist {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userlist h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .userlist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .userlist-item {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .userlist-item p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .userlist-item p:first-child {
+    font-weight: bold;
+    color: #333;
+  }
+  

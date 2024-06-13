@@ -349,6 +349,38 @@ app.get('/product/:id', async (req, res) => {
   }
 });
 
+app.post("/updateproduct", upload.single('product'), async (req, res) => {
+  const { id, name, category, new_price, old_price } = req.body;
+  let image = req.body.image;
+
+  if (req.file) {
+    image = `http://localhost:4000/images/${req.file.filename}`;
+  }
+
+  try {
+    const updatedProduct = await Product.findOneAndUpdate(
+      { id },
+      { name, image, category, new_price, old_price },
+      { new: true }
+    );
+    console.log("Updated Product:", updatedProduct);
+    res.json({ success: true, product: updatedProduct });
+  } catch (error) {
+    console.error("Error updating product:", error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.get("/users", async (req, res) => {
+  try {
+    const users = await Users.find({});
+    res.json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.listen(port, (error) => {
   if (!error) console.log("Server Running on port " + port);
   else console.log("Error : ", error);
