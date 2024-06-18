@@ -381,6 +381,16 @@ app.get("/users", async (req, res) => {
   }
 });
 
+app.delete("/user/:id", async (req, res) => {
+  try {
+    await Users.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 app.listen(port, (error) => {
   if (!error) console.log("Server Running on port " + port);
   else console.log("Error : ", error);

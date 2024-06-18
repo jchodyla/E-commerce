@@ -5,10 +5,29 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/users')
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
+    fetchUsers();
   }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch('http://localhost:4000/users');
+      const data = await res.json();
+      setUsers(data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
+
+  const deleteUser = async (id) => {
+    try {
+      await fetch(`http://localhost:4000/user/${id}`, {
+        method: 'DELETE',
+      });
+      fetchUsers();
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
 
   return (
     <div className="userlist">
@@ -18,6 +37,7 @@ const UserList = () => {
           <div key={user._id} className="userlist-item">
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
+            <button onClick={() => deleteUser(user._id)}>Delete</button>
           </div>
         ))}
       </div>
